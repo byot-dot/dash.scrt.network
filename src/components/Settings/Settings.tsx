@@ -206,6 +206,8 @@ function Settings() {
       </Modal>
       <div>
         <button
+          type="button"
+          aria-label="Open settings"
           onClick={() => setIsModalOpen(true)}
           className="text-black dark:text-white hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
         >

@@ -56,7 +56,7 @@ export const DefaultLayout = ({ children }: any) => {
                 {icon}
                 {message}
                 {t.type !== 'loading' && (
-                  <button onClick={() => toast.dismiss(t.id)}>
+                  <button type="button" aria-label="Dismiss notification" onClick={() => toast.dismiss(t.id)}>
                     <FontAwesomeIcon icon={faXmark} />
                   </button>
                 )}
@@ -72,6 +72,7 @@ export const DefaultLayout = ({ children }: any) => {
       <div className="flex">
         {/* Menu */}
         <aside
+          id="primary-navigation"
           className={
             (showMobileMenu
               ? 'z-50 left-0 right-0 w-full lg:w-auto min-h-screen bg-white dark:bg-neutral-900'
@@ -103,6 +104,10 @@ export const DefaultLayout = ({ children }: any) => {
               {/* Burger Menu */}
               <div className="flex-initial lg:hidden">
                 <button
+                  type="button"
+                  aria-label="Open navigation menu"
+                  aria-controls="primary-navigation"
+                  aria-expanded={showMobileMenu}
                   onClick={() => setShowMobileMenu(true)}
                   className="text-black dark:text-white hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
                 >

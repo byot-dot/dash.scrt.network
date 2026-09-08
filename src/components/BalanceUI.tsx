@@ -101,9 +101,10 @@ export default function BalanceUI({
           balance !== ('GenericFetchError' as GetBalanceError) &&
           token.name &&
           (onBalanceClick ? (
-            <span
+            <button
+              type="button"
               className="cursor-pointer hover:underline"
-              onClick={() => onBalanceClick(Number(BigNumber(balance).dividedBy(`1e${token.decimals}`)))} // ADD
+              onClick={() => onBalanceClick(Number(BigNumber(balance).dividedBy(`1e${token.decimals}`)))}
             >
               <span className="font-medium font-mono">{` ${Number(
                 BigNumber(balance).dividedBy(`1e${token.decimals}`)
@@ -113,7 +114,7 @@ export default function BalanceUI({
           ${token.name == 'SCRT' && isSecretToken ? 's' : ''}${token.name} ${
             token.coingecko_id && currencyPriceString && showCurrencyEquiv ? ` (${currencyPriceString})` : ''
           }`}</span>
-            </span>
+            </button>
           ) : (
             <>
               <span className="font-medium font-mono">{` ${Number(

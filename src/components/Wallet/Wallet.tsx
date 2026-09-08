@@ -264,7 +264,16 @@ function Wallet() {
       </Modal>
 
       {isConnected ? (
-        <div onClick={() => setIsMenuOpen(true)} ref={refs.setReference}>
+        <>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            ref={refs.setReference}
+            aria-haspopup="dialog"
+            aria-expanded={isMenuOpen}
+          >
+            <X />
+          </button>
           {isMenuOpen && (
             <div
               className="w-full sm:w-auto px-4 sm:px-0 z-40"
@@ -275,12 +284,9 @@ function Wallet() {
               <ContextMenu />
             </div>
           )}
-          <div>
-            <X />
-          </div>
-        </div>
+        </>
       ) : (
-        <button onClick={() => handleConnectWallet()}>
+        <button type="button" onClick={() => handleConnectWallet()}>
           <X />
         </button>
       )}
